@@ -1,0 +1,85 @@
+
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <button class="btn btn-primary my-3" [routerLink]="['/home']">Retour</button>
+          <hr>
+          <h1> Please fill out this form</h1>
+      </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xl-8 offset-xl-2">
+
+
+    <div class="card">
+      <div class="card-body">
+<form *ngIf="formulaire !=undefined" [formGroup]="formulaire" (ngSubmit)="onSubmit()">
+  <h3 [innerHTML]="'<h3>'+title+'</h3>'"> </h3>
+  <h3 [innerHTML]="'<h3>'+description+'</h3>'"> </h3>
+  <div formArrayName="questions">
+    <div *ngFor="let question of formulaire.controls.questions.value; let i=index; trackBy: trackByFn">
+      <div [formGroupName]="i">
+        <b style="color: green;">Question {{i+1}}</b><br>
+        <b [innerHTML]="getQuestions().value[i].content+'?'"></b><br>
+        <div formArrayName="reponses">
+
+        <div *ngIf="formulaire.controls.questions.value[i].type=='Text'">
+          <div *ngFor="let quant of getreponses(i).controls; let j=index" [formGroupName]="j">
+          <input type="text"  class="form-control" formControlName="content">
+
+        </div>
+        </div>
+
+          <div *ngIf="formulaire.controls.questions.value[i].type=='YesNo'">
+            <div *ngFor="let quant of getreponses(i).controls; let j=index" [formGroupName]="j">
+            <label>
+              <input type="radio" value="Yes" formControlName="content">
+                <span >Yes</span>
+            </label>
+            <label>
+              <input type="radio" value="No" formControlName="content" >
+                <span>No</span>
+            </label>
+            </div>
+          </div>
+          <div *ngIf="formulaire.controls.questions.value[i].type==''">
+
+            <div *ngFor="let choice of T[i]">
+              <b style="color: red;" [innerHTML]="choice.content"></b>
+            </div>
+          </div>
+            <div *ngIf="formulaire.controls.questions.value[i].type=='Quiz'">
+
+              <div *ngFor="let choice of T[i]" class="col-md-2">
+
+                  <input type="checkbox" [value]="choice.content" (change)="onCheckChange($event,i)" >
+<label [innerHTML]="choice.content"></label>
+
+            </div>
+            </div>
+
+        </div>
+      </div>
+  </div>
+  <p >
+    <button class="btn btn-success" type="submit">Répondre</button>
+  </p>
+    </div>
+
+
+
+
+
+
+
+
+</form>
+</div>
+</div>
+</div>
+</div>
+
+

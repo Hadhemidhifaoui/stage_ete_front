@@ -1,0 +1,10 @@
+<h1>Les Formulaires</h1>
+
+<ul class="list-group" *ngFor="let form of forms">
+  <li class="list-group-item" [innerHTML]="form.title+ ' : '+form.description"> </li>
+  <div class="inputbx">
+    <button class="btn btn-success" [routerLink]="['form-detail',form.id]">Afficher</button>
+  </div>
+
+
+</ul>

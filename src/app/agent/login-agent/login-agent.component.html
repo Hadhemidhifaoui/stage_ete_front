@@ -1,0 +1,51 @@
+<section>
+  <div class="imgbx">
+      <img src="../../../assets/img/lone tree.jpg">
+  </div>
+
+  <div class="contentbx">
+
+      <div class="formbx">
+        <h2>Login</h2>
+        <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmit()">
+            <div class="inputbx">
+              <i class="pi pi-user"></i> <span>Email</span>
+                <input type="text" formControlName="email" pInputText placeholder="Email" required>
+
+            </div>
+            <small *ngIf="loginForm.email.invalid && isSubmitted" class="p-error"
+            ><span *ngIf="loginForm.email.errors?.required">email is required</span>
+            <span *ngIf="loginForm.email.errors?.email">email is invalid</span></small>
+
+            <div class="inputbx">
+              <i class="pi pi-lock"></i><span>Password</span>
+                <input
+                type="password"
+                formControlName="password"
+                pInputText
+                placeholder="Password"
+              />
+              <small *ngIf="loginForm.password.invalid && isSubmitted" class="p-error"
+              >Password is required
+            </small>
+            </div>
+
+
+            <div class="inputbx">
+
+              <button type="submit" class="btn btn-success">Sign In</button>
+              <a routerLink="login-admin"> <i class="bi bi-arrow-right" style="color: #ff4584;"> <b>         Admin Login</b></i></a>
+
+
+
+                <div class="p-col-12" *ngIf="isSubmitted && authError">
+                  <small class="p-error">{{ authMessage }}</small>
+                </div>
+            </div>
+
+
+
+        </form>
+      </div>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="col-lg-10 col-md-8 col-12 mx-auto">
+  <div class="card z-index-0 fadeIn3 fadeInBottom">
+    <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+      <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+        <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Create Agent</h4>
+
+      </div><br><br>
+    </div>
+    <div class="card-body">
+      <form role="form" class="text-start" [formGroup]="addUserForm" (ngSubmit)="addUser()">
+        <div class="input-group input-group-outline my-3">
+          <label class="form-label"><b>Name</b><span>*</span></label><br><br><br>
+          <input type="text" class="form-control" formControlName="name">
+        </div>
+        <div class="input-group input-group-outline my-3">
+          <label class="form-label">Email</label><br><br><br>
+          <input type="email"  class="form-control" formControlName="email">
+        </div>
+        <div class="input-group input-group-outline mb-3">
+          <label class="form-label">Password</label><br><br><br>
+          <input type="password" class="form-control" formControlName="password">
+        </div>
+        <div class="input-group input-group-outline mb-3">
+          <label class="form-label">Phone</label><br><br><br>
+          <input type="tel" class="form-control" formControlName="phone">
+        </div>
+
+        <div class="input-group input-group-outline mb-3">
+          <label class="form-label">Street</label><br><br><br>
+          <input type="text" class="form-control" formControlName="street">
+        </div>
+        <div class="input-group input-group-outline mb-3">
+          <label class="form-label">City</label><br><br><br>
+          <input type="text" class="form-control" formControlName="city" >
+        </div>
+        <div class="input-group input-group-outline mb-3">
+          <label class="form-label">Country</label><br><br><br>
+          <input type="text" class="form-control" formControlName="country">
+        </div>
+        <div class="input-group input-group-outline mb-3">
+          <label class="form-label">Function</label><br><br><br>
+          <input type="text" class="form-control" formControlName="function">
+        </div>
+        <div class="input-group input-group-outline mb-3">
+          <label class="form-label">Status</label><br><br><br>
+          <input type="text" class="form-control" formControlName="status">
+        </div>
+        <div class="input-group input-group-outline mb-3">
+          <label class="form-label">Employed</label><br><br><br>
+          <input type="date" class="form-control" formControlName="employed">
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Create</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

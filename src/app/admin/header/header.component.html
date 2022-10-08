@@ -1,0 +1,35 @@
+<ejs-toolbar width="1000">
+  <e-items>
+    <e-item type="Input">
+      <ng-template #template>
+        <ejs-numerictextbox width=120 value=1 format='c2'></ejs-numerictextbox>
+      </ng-template>
+     </e-item>
+     <e-item type="Input">
+      <ng-template #template>
+        <ejs-dropdownlist [dataSource]='listDataSource' placeholder='Select a game'></ejs-dropdownlist>
+      </ng-template>
+     </e-item>
+     <e-item text='Cut' prefixIcon='e-cut-icon tb-icons'></e-item>
+     <e-item text='Copy' prefixIcon='e-copy-icon tb-icons'></e-item>
+     <e-item text='Paste' prefixIcon='e-paste-icon tb-icons'></e-item>
+     <e-item type='Separator'></e-item>
+     <e-item text='Bold' prefixIcon='e-bold-icon tb-icons'></e-item>
+     <e-item text='Italic' prefixIcon='e-italic-icon tb-icons'></e-item>
+     <e-item text='Underline' prefixIcon='e-underline-icon tb-icons'></e-item>
+     <e-item type="Separator"></e-item>
+     <e-item suffixIcon="e-bullets-icon tb-icons" text="Bullets"></e-item>
+     <e-item suffixIcon="e-numbering-icon tb-icons" text="Numbering"></e-item>
+     <e-item type="Separator"></e-item>
+     <e-item suffixIcon="e-undo-icon tb-icons" text="Undo"></e-item>
+     <e-item suffixIcon="e-redo-icon tb-icons" text="Redo"></e-item>
+     <e-item type="Separator"></e-item>
+     <e-item suffixIcon="e-alignleft-icon tb-icons" text="Left"></e-item>
+     <e-item suffixIcon="e-alignright-icon tb-icons" text="Right"></e-item>
+     <e-item suffixIcon="e-aligncenter-icon tb-icons" text="Center"></e-item>
+     <e-item suffixIcon="e-alignjustify-icon tb-icons" text="Justify"></e-item>
+     <e-item type="Separator"></e-item>
+     <e-item suffixIcon="e-table-icon tb-icons" text="Table"></e-item>
+     <e-item suffixIcon="e-picture-icon tb-icons" text="Picture"></e-item>
+  </e-items>
+</ejs-toolbar>

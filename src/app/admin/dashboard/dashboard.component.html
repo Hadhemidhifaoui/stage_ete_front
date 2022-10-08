@@ -1,0 +1,191 @@
+
+
+
+
+  <!-- Navbar -->
+
+ <!-- <app-header></app-header> -->
+
+  <!-- End Navbar -->
+  <div class="container-fluid py-2">
+    <div class="row ">
+
+      <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+              <i class="material-icons opacity-10">person</i>
+            </div>
+            <div class="text-end pt-1">
+              <h1>Agents</h1>
+              <h4 class="mb-0"></h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute" >
+              <i class="material-icons opacity-10" >weekend</i>
+            </div>
+            <div class="text-end pt-1">
+              <h1 >Forms</h1>
+              <h4 class="mb-0"></h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0">
+          <div class="card-footer p-3">
+            <p class="mb-0"><span class="text-success text-sm font-weight-bolder"></span></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row mt-4">
+       <div class="col-lg-4 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+
+          </div>
+
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2 ">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+    <div class="row mb-4" >
+      <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+        <div class="card" style="color: pink;">
+          <div class="card-header pb-0">
+            <div class="row">
+              <div class="col-lg-6 col-7">
+                <h6>Agents List</h6>
+                <p class="text-sm mb-0">
+                  <i class="fa fa-check text-info" aria-hidden="true"></i>
+                  <span class="font-weight-bold ms-1"></span>
+                </p>
+              </div>
+              <div class="col-lg-6 col-5 my-auto text-end">
+                <div class="dropdown float-lg-end pe-4">
+                  <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-ellipsis-v text-secondary"></i>
+                  </a>
+                  <!-- <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                    <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                    <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                    <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2" >
+            <div class="table-responsive">
+              <table class="table align-items-center mb-0" >
+                <thead >
+                  <tr >
+                    <th  class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" ><b>Nom</b></th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"><b>Email</b></th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><b>Fonction</b></th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"><b>Num de téléphone</b></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let agent of agents">
+                    <td>
+                      <div class="d-flex px-2 py-1">
+
+                        <div class="d-flex flex-column justify-content-center">
+                          <h6 >{{agent.name}}</h6>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+  {{agent.userIdentifier}}
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <span > {{agent.function}}</span>
+                    </td>
+                    <td class="align-middle">
+                      <div class="progress-wrapper w-75 mx-auto">
+                        <div class="progress-info">
+                          <div class="progress-percentage">
+                            <span style="color:blue ;">{{agent.phone}}</span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="card h-100">
+          <div class="card-header pb-0">
+            <h3 style="color: pink;">Forms List </h3>
+            <p class="text-sm">
+              <i class="fa fa-arrow-up text-success" aria-hidden="true"></i>
+              <span class="font-weight-bold"></span>
+            </p>
+          </div>
+          <div class="card-body p-3">
+            <div class="timeline timeline-one-side">
+              <!-- <div class="timeline-block mb-3">
+                <span class="timeline-step">
+                  <i class="material-icons text-success text-gradient">notifications</i>
+                </span>
+                <div class="timeline-content">
+                  <h6 class="text-dark text-sm font-weight-bold mb-0">$2400, Design changes</h6>
+                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0">22 DEC 7:20 PM</p>
+                </div>
+              </div> -->
+              <div class="timeline-block mb-3" *ngFor="let form of forms">
+                <span class="timeline-step">
+                  <i class="material-icons text-danger text-gradient">code</i>
+                </span>
+                <div class="timeline-content" >
+                  <h6 class="text-dark text-sm font-weight-bold mb-0" [innerHTML]="form.title"></h6>
+                  <p class="text-secondary font-weight-bold text-xs mt-1 mb-0" [innerHTML]="form.description"></p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+

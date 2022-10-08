@@ -1,0 +1,115 @@
+
+<br>
+<br>
+<br>
+<div class="container">
+  <form [formGroup]='orderForm' (ngSubmit)='submitForm()'>
+    <div class="form-group">
+      <label><h1>Titre Du Formulaire</h1></label>
+      <input type="text"  class="form-control"  placeholder="Formulaire sans titre" formControlName="title" >
+    </div>
+    <div class="form-group">
+      <label ><h3>Description</h3></label>
+      <input type="text" class="form-control"  placeholder="Description Du Formulaire" formControlName="description">
+    </div>
+
+
+
+
+ <!-- <ckeditor [editor]="Editor" data="
+<h1 >Formulaire sans titre</h1>
+<p>Description du Formulaire</p>
+
+
+
+"></ckeditor>  -->
+
+<!-- <form [formGroup]='orderForm' (ngSubmit)='submitForm(orderForm.value)'> -->
+  <div formArrayName="items"
+   *ngFor="let item of formData.controls; let i = index; let c = count">
+ <div class="line" [formGroupName]="i">
+  <span> Question :{{i+1}} </span>
+<br>
+  <div class="input-group mb-3">
+    <select class="custom-select"  id="inputGroupSelect02">
+      <option selected>Choose the type of Question</option>
+      <option value="1">yes/no Question</option>
+      <option value="2">Quiz</option>
+      <option value="3">Text Question</option>
+    </select>
+    <div class="input-group-append">
+      <label class="input-group-text" for="inputGroupSelect02">Options</label>
+    </div>
+  </div>
+
+  <!-- <fieldset>
+    <legend>Choose the type of Question</legend>
+
+    <div>
+      <input type="checkbox"
+      formControlName="type"  >yes/no question
+
+    </div>
+
+    <div>
+      <input type="checkbox" id="horns" name="horns" formControlName="type">
+      <label for="horns">Quiz</label>
+    </div>
+    <div>
+      <input type="checkbox" id="horns" name="horns" formControlName="type">
+      <label for="horns">Quiz</label>
+    </div>
+</fieldset> -->
+
+<ckeditor  formControlName="content"  [editor]="Editor"
+
+
+></ckeditor>
+<!-- <input type="radio" >
+<label >Option 1</label><br>
+<input type="radio">
+<label ><a >Ajouter autre</a> </label> -->
+
+<div [ngClass]="''">
+  <input type="radio" >
+<label ><b>Yes</b></label><br>
+<input type="radio">
+<label><b>No</b></label>
+
+</div>
+<div NgClass="custom-select.value=2">
+<!-- <input type="radio">
+<input type="radio"> -->
+
+</div>
+<div NgClass="custom-select.value=3">
+
+<ckeditor [editor]="Editor" data="Response">
+
+</ckeditor>
+
+
+</div>
+<br>
+<button type="button"
+title="Supprimer la ligne"
+*ngIf="c > 1"
+(click)="deleteItemLine($event, i)">X</button>
+</div>
+</div>
+<div class="addbutton">
+  <button type="button" (click)="addItem($event)">Dupliquer</button>
+
+</div>
+<hr>
+
+<button type="submit">Envoyer</button>
+
+</form>
+</div>
+
+
+
+
+
+

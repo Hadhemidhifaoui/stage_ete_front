@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <button class="btn btn-primary my-3" [routerLink]="['/home']">Retour</button>
+          <hr>
+          <h1> Please fill out this form</h1>
+      </div>
+  </div>
+
+
+</div>
+
+
+<div class="row">
+  <div class="col-xl-8 offset-xl-2">
+
+
+    <div class="card">
+      <div class="card-body">
+
+        <!-- Form -->
+        <form *ngIf="formdata" [formGroup]="Form">
+          <div class="form-group">
+            <label>Titre du Formulaire</label><br>
+         <b >{{formdata.title}}</b>
+          </div>
+          <div class="form-group">
+           <label>Description</label><br>
+            <b >{{formdata.description}}</b>
+          </div>
+           <div class="form-group" *ngFor="let question of formdata.questions">
+           <label>Question</label>
+            <p > {{question.content}} ?</p>
+            <div *ngIf="question.type=='Text'">
+            <input type="text"  class="form-control" >
+            </div>
+            <div *ngIf="question.type=='YesNo'">
+              <input type="radio" >
+              <label ><b>Yes</b></label><br>
+              <input type="radio" >
+              <label><b>No</b></label>
+              </div>
+              <div *ngIf="question.type=='Quiz'">
+                <div *ngFor="let reponse of question.reponses">
+                <input type="checkbox"  >
+                <label >{{reponse.content}}</label>
+                </div>
+              </div>
+          </div>
+
+          <button type="submit" class="btn btn-success" (click)="onSubmit()">Repondre</button>
+        </form>
+        <!-- /Form -->
+      </div>
+    </div>
+  </div>
+</div>
+

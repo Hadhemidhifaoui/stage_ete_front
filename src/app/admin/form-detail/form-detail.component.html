@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <button class="btn btn-primary my-3" [routerLink]="['/admin/response']">Retour</button>
+          <hr>
+
+      </div>
+  </div>
+
+
+</div>
+
+
+<div class="row">
+  <div class="col-xl-8 offset-xl-2">
+
+
+    <div class="card">
+      <div class="card-body">
+
+        <!-- Form -->
+        <form *ngIf="formdata">
+          <div class="form-group" *ngIf="formdata.Agent!=undefined">
+            <h6>Nom et Email de L'agent :</h6>
+
+            <br>
+         <pre style="color:#ff4584 ;">{{formdata.Agent.name}} :            "{{formdata.Agent.email}}"</pre>
+
+
+          </div>
+          <hr>
+          <div class="form-group">
+            <h6>Titre du Formulaire</h6>
+
+            <br>
+         <b [innerHTML]="formdata.title" style="color:pink ;"></b>
+          </div>
+          <hr>
+          <div class="form-group">
+           <h6>Description</h6>
+
+           <br>
+            <b [innerHTML]="formdata.description" style="color: pink;"></b>
+          </div>
+          <hr>
+
+
+           <div class="form-group" *ngFor="let question of formdata.questions; let i=index">
+           <label style="color: blue;">Question {{i+1}}</label><br>
+            <b [innerHTML]="question.content+ '?'"></b>
+
+
+
+          <div >
+            <!-- <label>Response {{i+1}}</label><br> -->
+            <div *ngFor="let reponse of question.reponses">
+                <b style="color: red;" [innerHTML]="reponse.content"></b>
+              </div>
+          </div>
+          </div>
+
+
+
+
+        </form>
+        <!-- /Form -->
+      </div>
+    </div>
+  </div>
+</div>
+

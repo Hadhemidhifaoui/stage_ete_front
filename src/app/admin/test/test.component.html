@@ -1,0 +1,94 @@
+<div class="container">
+
+  <h1> Admin form</h1>
+
+  <form [formGroup]="Form" >
+
+    <p>
+      <label for="name">Title:</label>
+      <!-- <input type="text" id="title" name="title" formControlName="title" class="form-control"> -->
+      <ckeditor  formControlName="title"  [editor]="Editor"></ckeditor>
+    </p>
+
+
+    <p>
+      <label for="name">Description:</label>
+      <ckeditor  formControlName="description"  [editor]="Editor"></ckeditor>
+      <!-- <input type="text" id="description" name="description" formControlName="description" class="form-control"> -->
+    </p>
+    <table class="table table-bordered" formArrayName="questions">
+<tr>
+
+</tr>
+
+      <tr *ngFor="let quantity of questions().controls; let i=index" [formGroupName]="i">
+<!-- {{questions().value[i].type}} -->
+
+        <span>{{i+1}}</span>
+
+        <td  *ngIf="questions().value[i].type=='Quiz' ">
+            Content :
+            <ckeditor  formControlName="content"  [editor]="Editor"></ckeditor><br>
+            <!-- <input type="text" formControlName="content" class="form-control"><br> -->
+            <div formArrayName="reponses">
+            Choix :
+            <button class="w3-button w3-circle w3-black" (click)="addQuant(i); $event.stopPropagation()">+</button>
+            <div *ngFor="let quant of reponses(i).controls; let j=index" [formGroupName]="j">
+
+            <!-- <input type="text" formControlName="content"   class="form-control" (keyup)="changeContent($event,i,j)"> -->
+            <ckeditor  formControlName="content"  [editor]="Editor"></ckeditor>
+            <button class="material-icons text-sm me-2" (click)="removeQuant(j,i)">delete</button>
+
+</div>
+</div>
+        </td>
+        <td *ngIf="questions().value[i].type!='Quiz' ">
+          Content :
+          <ckeditor  formControlName="content"  [editor]="Editor"></ckeditor>
+          <!-- <input type="text" formControlName="content" class="form-control"> -->
+        </td>
+
+
+            <td  >
+              Type :
+
+              <input type="text" formControlName="type" class="form-control" >
+</td>
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+        <button (click)="removeQuantity(i)" class="btn btn-danger"> Remove</button>
+      </tr>
+
+    </table>
+
+    <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
+
+
+  </form>
+
+  <br/>
+</div>
+<div>
+
+  <select  [(ngModel)]="selectedOption" >
+
+    <option *ngFor="let o of options" >
+      {{o.name}}
+
+   </option>
+  </select>
+  <button (click)="addQuantity()" class="btn btn-warning">  Add new question</button>
+  </div>
+
+  <!-- {{this.Form.value | json}} -->
